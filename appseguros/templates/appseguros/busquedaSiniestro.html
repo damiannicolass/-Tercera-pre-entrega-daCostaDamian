@@ -1,0 +1,21 @@
+<!--Heredo template de base.html-->
+{% extends 'appseguros/base.html' %}
+
+<!--Titulo Pestaña de Navegador-->
+{% block titulo %} Gestiones VyD | Busqueda siniestro {% endblock  %}
+
+<!--Body de pagina-->
+{% block contenidoQueCambia %}
+
+<div class="container mt-5">
+    <h1 class="mb-4">Ingrese asegurado para buscar:</h1>
+    <form action="{% url 'resultadoBusquedaSiniestro' %}" method="GET" class="form-inline">
+        <div class="form-group mb-2">
+            <label for="asegurado" class="sr-only">asegurado</label>
+            <input type="text" class="form-control" name="asegurado" id="asegurado" placeholder="Asegurado">
+        </div>
+        <button type="submit" class="btn btn-dark mb-2 ml-2">Buscar</button>
+    </form>
+</div>
+
+{% endblock  %}

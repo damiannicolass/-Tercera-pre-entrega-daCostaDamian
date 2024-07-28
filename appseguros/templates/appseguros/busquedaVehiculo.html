@@ -1,0 +1,21 @@
+<!--Heredo template de base.html-->
+{% extends 'appseguros/base.html' %}
+
+<!--Titulo Pestaña de Navegador-->
+{% block titulo %} Gestiones VyD | Busqueda vehiculo {% endblock  %}
+
+<!--Body de pagina-->
+{% block contenidoQueCambia %}
+
+<div class="container mt-5">
+    <h1 class="mb-4">Ingrese dominio para buscar:</h1>
+    <form action="{% url 'resultadoBusquedaVehiculo' %}" method="GET" class="form-inline">
+        <div class="form-group mb-2">
+            <label for="dominio" class="sr-only">dominio</label>
+            <input type="text" class="form-control" name="dominio" id="dominio" placeholder="Dominio">
+        </div>
+        <button type="submit" class="btn btn-dark mb-2 ml-2">Buscar</button>
+    </form>
+</div>
+
+{% endblock  %}

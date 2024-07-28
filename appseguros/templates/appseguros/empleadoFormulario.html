@@ -1,0 +1,21 @@
+<!--Heredo template de base.html-->
+{% extends 'appseguros/base.html' %}
+
+<!--Titulo Pestaña de Navegador-->
+{% block titulo %} Gestiones VyD | Agregar empleado {% endblock  %}
+
+<!--Body de pagina-->
+{% block contenidoQueCambia %}
+<div class="container">
+    <h1>Este es para agregar formulario de empleados</h1>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <table>
+            {{mi_formulario.as_table}}
+        </table>
+        <input type="submit" value="Enviar" class="btn btn-dark mb-2 ml-2">
+    </form>
+</div>
+{% endblock  %}

@@ -1,0 +1,28 @@
+<!--Heredo template de base.html-->
+{% extends 'appseguros/base.html' %}
+
+<!--Titulo Pestaña de Navegador-->
+{% block titulo %} Gestiones VyD | Siniestro {% endblock  %}
+
+<!--Body de pagina-->
+{% block contenidoQueCambia %}
+
+<div class="container mt-5">
+    {% if siniestros %}
+        <ul class="list-group">
+            {% for siniestro in siniestros %}
+                <li class="list-group-item">
+                    <p class="mb-1">{{ siniestro.numero_siniestro }}</p>
+                    <p class="mb-1">{{ siniestro.asegurado }}</p>
+                    <p class="mb-1">{{ siniestro.informacion }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <div class="alert alert-warning" role="alert">
+            No se encontraron siniestros con el nombre "{{ asegurado }}".
+        </div>
+    {% endif %}
+</div>
+
+{% endblock  %}

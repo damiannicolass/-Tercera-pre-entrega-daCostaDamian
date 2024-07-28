@@ -1,0 +1,30 @@
+<!--Heredo template de base.html-->
+{% extends 'appseguros/base.html' %}
+
+<!--Titulo Pestaña de Navegador-->
+{% block titulo %} Gestiones VyD | Asegurados {% endblock  %}
+
+<!--Body de pagina-->
+{% block contenidoQueCambia %}
+<div class="container pt-3">
+    <a href="{% url 'aseguradoFormulario' %}" class="btn btn-dark">Agregar Asegurado</a>
+    <a href="{% url 'busquedaAsegurado' %}" class="btn btn-dark">Buscar Asegurado</a>
+</div>
+
+<!--Muestro asegurados-->
+<div class="container mt-5">
+    <div class="row">
+        {% for asegurado in asegurados %}
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <p class="card-text">{{ asegurado.nombre }}</p>
+                    <p class="card-text">{{ asegurado.apellido }}</p>
+                    <p class="card-text">{{ asegurado.dni }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock  %}

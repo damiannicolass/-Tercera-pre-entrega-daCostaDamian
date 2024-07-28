@@ -1,0 +1,30 @@
+<!--Heredo template de base.html-->
+{% extends 'appseguros/base.html' %}
+
+<!--Titulo Pestaña de Navegador-->
+{% block titulo %} Gestiones VyD | Siniestros {% endblock  %}
+
+<!--Body de pagina-->
+{% block contenidoQueCambia %}
+<div class="container pt-3">
+    <a href="{% url 'siniestroFormulario' %}" class="btn btn-dark">Agregar Siniestro</a>
+    <a href="{% url 'busquedaSiniestro' %}" class="btn btn-dark">Buscar siniestro</a>
+</div>
+
+<!--Muestro siniestros pendientes-->
+<div class="container mt-5">
+    <div class="row">
+        {% for siniestro in siniestros %}
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">{{ siniestro.numero_siniestro }}</h5>
+                    <h5 class="card-title">{{ siniestro.asegurado }}</h5>
+                    <p class="card-text">{{ siniestro.informacion }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock  %}

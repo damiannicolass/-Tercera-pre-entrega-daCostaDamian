@@ -1,0 +1,31 @@
+<!--Heredo template de base.html-->
+{% extends 'appseguros/base.html' %}
+
+<!--Titulo Pestaña de Navegador-->
+{% block titulo %} Gestiones VyD | Tareas {% endblock  %}
+
+<!--Body de pagina-->
+{% block contenidoQueCambia %}
+
+<div class="container pt-3">
+    <a href="{% url 'tareaFormulario' %}" class="btn btn-dark">Agregar tarea</a>
+    <a href="{% url 'busquedaTarea' %}" class="btn btn-dark">Buscar tarea</a>
+</div>
+
+<!--Muestro tareas pendientes-->
+<div class="container mt-5">
+    <div class="row">
+        {% for tarea in tareas %}
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">{{ tarea.titulo }}</h5>
+                    <p class="card-text">{{ tarea.subtitulo }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock  %}

@@ -1,0 +1,21 @@
+<!--Heredo template de base.html-->
+{% extends 'appseguros/base.html' %}
+
+<!--Titulo Pestaña de Navegador-->
+{% block titulo %} Gestiones VyD | Busqueda Tarea {% endblock  %}
+
+<!--Body de pagina-->
+{% block contenidoQueCambia %}
+
+<div class="container mt-5">
+    <h1 class="mb-4">Ingrese la tarea para buscar:</h1>
+    <form action="{% url 'resultadoBusquedaTarea' %}" method="GET" class="form-inline">
+        <div class="form-group mb-2">
+            <label for="titulo" class="sr-only">Título</label>
+            <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Título">
+        </div>
+        <button type="submit" class="btn btn-dark mb-2 ml-2">Buscar</button>
+    </form>
+</div>
+
+{% endblock  %}

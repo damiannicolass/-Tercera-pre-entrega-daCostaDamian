@@ -1,0 +1,27 @@
+<!--Heredo template de base.html-->
+{% extends 'appseguros/base.html' %}
+
+<!--Titulo Pestaña de Navegador-->
+{% block titulo %} Gestiones VyD | Empleado {% endblock  %}
+
+<!--Body de pagina-->
+{% block contenidoQueCambia %}
+
+<div class="container mt-5">
+    {% if empleados %}
+        <ul class="list-group">
+            {% for empleado in empleados %}
+                <li class="list-group-item">
+                    <h5 class="mb-1">{{ empleado.nombre }}</h5>
+                    <p class="mb-1">{{ empleado.apellido }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <div class="alert alert-warning" role="alert">
+            No se encontraron tareas con el nombre "{{ nombre }}".
+        </div>
+    {% endif %}
+</div>
+
+{% endblock  %}

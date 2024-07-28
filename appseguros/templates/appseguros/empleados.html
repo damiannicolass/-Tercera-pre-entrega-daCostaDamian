@@ -1,0 +1,29 @@
+<!--Heredo template de base.html-->
+{% extends 'appseguros/base.html' %}
+
+<!--Titulo Pestaña de Navegador-->
+{% block titulo %} Gestiones VyD | Empleados {% endblock  %}
+
+<!--Body de pagina-->
+{% block contenidoQueCambia %}
+<div class="container pt-3">
+    <a href="{% url 'empleadoFormulario' %}" class="btn btn-dark">Agregar Empleado</a>
+    <a href="{% url 'busquedaEmpleado' %}" class="btn btn-dark">Buscar Empleado</a>
+</div>
+
+<!--Muestro tareas pendientes-->
+<div class="container mt-5">
+    <div class="row">
+        {% for empleado in empleados %}
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <p class="card-text">{{ empleado.nombre }}</p>
+                    <p class="card-text">{{ empleado.apellido }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock  %}

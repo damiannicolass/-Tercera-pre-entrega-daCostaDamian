@@ -1,0 +1,28 @@
+<!--Heredo template de base.html-->
+{% extends 'appseguros/base.html' %}
+
+<!--Titulo Pestaña de Navegador-->
+{% block titulo %} Gestiones VyD | Asegurado {% endblock  %}
+
+<!--Body de pagina-->
+{% block contenidoQueCambia %}
+
+<div class="container mt-5">
+    {% if asegurados %}
+        <ul class="list-group">
+            {% for asegurado in asegurados %}
+                <li class="list-group-item">
+                    <p class="mb-1">{{ asegurado.nombre }}</p>
+                    <p class="mb-1">{{ asegurado.apellido }}</p>
+                    <p class="mb-1">{{ asegurado.dni }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <div class="alert alert-warning" role="alert">
+            No se encontraron tareas con el nombre "{{ nombre }}".
+        </div>
+    {% endif %}
+</div>
+
+{% endblock  %}

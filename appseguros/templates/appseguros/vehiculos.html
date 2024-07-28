@@ -1,0 +1,31 @@
+<!--Heredo template de base.html-->
+{% extends 'appseguros/base.html' %}
+
+<!--Titulo Pestaña de Navegador-->
+{% block titulo %} Gestiones VyD | Vehículos {% endblock  %}
+
+<!--Body de pagina-->
+{% block contenidoQueCambia %}
+
+<div class="container pt-3">
+    <a href="{% url 'vehiculoFormulario' %}" class="btn btn-dark">Agregar vehiculo</a>
+    <a href="{% url 'busquedaVehiculo' %}" class="btn btn-dark">Buscar vehiculo</a>
+</div>
+
+<!--Muestro vehiculos en base de datos-->
+<div class="container mt-5">
+    <div class="row">
+        {% for vehiculo in vehiculos %}
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <p class="card-text">{{ vehiculo.dominio }}</p>
+                    <p class="card-text">{{ vehiculo.año }}</p>
+                    <p class="card-text">{{ vehiculo.numero_motor }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock  %}

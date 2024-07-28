@@ -1,0 +1,28 @@
+<!--Heredo template de base.html-->
+{% extends 'appseguros/base.html' %}
+
+<!--Titulo Pestaña de Navegador-->
+{% block titulo %} Gestiones VyD | Vehiculo {% endblock  %}
+
+<!--Body de pagina-->
+{% block contenidoQueCambia %}
+
+<div class="container mt-5">
+    {% if vehiculos %}
+        <ul class="list-group">
+            {% for vehiculo in vehiculos %}
+                <li class="list-group-item">
+                    <p class="mb-1">{{ vehiculo.dominio }}</p>
+                    <p class="mb-1">{{ vehiculo.año }}</p>
+                    <p class="mb-1">{{ vehiculo.numero_motor }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <div class="alert alert-warning" role="alert">
+            No se encontraron vehiculos con el dominio "{{ dominio }}".
+        </div>
+    {% endif %}
+</div>
+
+{% endblock  %}
